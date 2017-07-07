@@ -1,0 +1,1281 @@
+{
+  "instance_groups": [
+    {
+      "azs": [
+        "z1",
+        "z2",
+        "z3"
+      ],
+      "instances": 5,
+      "jobs": [
+        {
+          "name": "zookeeper",
+          "properties": {},
+          "release": "zookeeper"
+        }
+      ],
+      "name": "zookeeper",
+      "networks": [
+        {
+          "name": "default"
+        }
+      ],
+      "persistent_disk": 10240,
+      "stemcell": "default",
+      "vm_type": "default"
+    },
+    {
+      "azs": [
+        "z1"
+      ],
+      "instances": 1,
+      "jobs": [
+        {
+          "name": "smoke-tests",
+          "properties": {},
+          "release": "zookeeper"
+        }
+      ],
+      "lifecycle": "errand",
+      "name": "smoke-tests",
+      "networks": [
+        {
+          "name": "default"
+        }
+      ],
+      "stemcell": "default",
+      "vm_type": "default"
+    }
+  ],
+  "releases": [
+    {
+      "name": "zookeeper",
+      "sha1": "65a07b7526f108b0863d76aada7fc29e2c9e2095",
+      "url": "https://bosh.io/d/github.com/cppforlife/zookeeper-release?v=0.0.5",
+      "version": "0.0.5"
+    }
+  ],
+  "stemcells": [
+    {
+      "alias": "default",
+      "os": "ubuntu-trusty",
+      "version": "3421.11"
+    }
+  ],
+  "update": [
+    {
+      "canaries": 2,
+      "canary_watch_time": "5000-60000",
+      "max_in_flight": 1,
+      "update_watch_time": "5000-60000"
+    }
+  ],
+  "info": [
+    {
+      "name": "Bosh Lite Director",
+      "uuid": "0d69cda3-af6f-4eaf-8989-d0a2a2ecacd1",
+      "version": "262.3.0 (00000000)",
+      "user": null,
+      "cpi": "warden_cpi",
+      "user_authentication": {
+        "type": "basic",
+        "options": {}
+      },
+      "features": {
+        "dns": {
+          "status": false,
+          "extras": {
+            "domain_name": "bosh"
+          }
+        },
+        "compiled_package_cache": {
+          "status": false,
+          "extras": {
+            "provider": null
+          }
+        },
+        "snapshots": {
+          "status": false
+        },
+        "config_server": {
+          "status": false,
+          "extras": {
+            "urls": []
+          }
+        }
+      }
+    }
+  ],
+  "instances": [
+    {
+      "agent_id": null,
+      "cid": null,
+      "job": "smoke-tests",
+      "index": 0,
+      "id": "a9d989ea-f38b-4351-93f7-d2936b2c78ce",
+      "az": "z1",
+      "ips": [],
+      "expects_vm": false
+    },
+    {
+      "agent_id": "c16d6c60-6699-4e58-b6ea-6b3f430fd6f8",
+      "cid": "5f099bef-982b-42f6-5c8f-192bef303026",
+      "job": "zookeeper",
+      "index": 0,
+      "id": "b1674266-d061-41de-9445-7af19b9bd42e",
+      "az": "z1",
+      "ips": [
+        "10.244.0.2"
+      ],
+      "expects_vm": true
+    },
+    {
+      "agent_id": "ef81e3e6-3377-488a-b25a-8ce7e3ed2a6a",
+      "cid": "2b010687-5ca0-42b8-79f3-9211b68f78b8",
+      "job": "zookeeper",
+      "index": 3,
+      "id": "e2c5ddad-77ce-4010-86ed-46a3293a25ca",
+      "az": "z1",
+      "ips": [
+        "10.244.0.3"
+      ],
+      "expects_vm": true
+    },
+    {
+      "agent_id": "76dece07-3802-45c8-a678-9fd4baeda421",
+      "cid": "7643d5c3-f89d-49c7-7c15-ac8950ed3041",
+      "job": "zookeeper",
+      "index": 4,
+      "id": "21747d41-fd1c-4647-b5e2-bd3b898b199f",
+      "az": "z2",
+      "ips": [
+        "10.244.0.4"
+      ],
+      "expects_vm": true
+    },
+    {
+      "agent_id": "f9c1a6e4-57ba-4da9-87fa-002281974921",
+      "cid": "5e53f5e9-00c9-4ef2-6475-0534f8ae2b8f",
+      "job": "zookeeper",
+      "index": 1,
+      "id": "d25d92a0-5809-4928-8079-b032bab19b43",
+      "az": "z2",
+      "ips": [
+        "10.244.0.5"
+      ],
+      "expects_vm": true
+    },
+    {
+      "agent_id": "1b8a619f-817f-40ac-808c-ff78993afc01",
+      "cid": "1b65496a-e4ac-4abc-60e8-340ed68c7bd5",
+      "job": "zookeeper",
+      "index": 2,
+      "id": "3d377c0f-72e0-4d2f-97a5-1517f56b95cd",
+      "az": "z3",
+      "ips": [
+        "10.244.0.6"
+      ],
+      "expects_vm": true
+    }
+  ],
+  "vms": [
+    {
+      "agent_id": "c16d6c60-6699-4e58-b6ea-6b3f430fd6f8",
+      "cid": "5f099bef-982b-42f6-5c8f-192bef303026",
+      "job": "zookeeper",
+      "index": 0,
+      "id": "b1674266-d061-41de-9445-7af19b9bd42e",
+      "az": "z1",
+      "ips": [
+        "10.244.0.2"
+      ]
+    },
+    {
+      "agent_id": "ef81e3e6-3377-488a-b25a-8ce7e3ed2a6a",
+      "cid": "2b010687-5ca0-42b8-79f3-9211b68f78b8",
+      "job": "zookeeper",
+      "index": 3,
+      "id": "e2c5ddad-77ce-4010-86ed-46a3293a25ca",
+      "az": "z1",
+      "ips": [
+        "10.244.0.3"
+      ]
+    },
+    {
+      "agent_id": "76dece07-3802-45c8-a678-9fd4baeda421",
+      "cid": "7643d5c3-f89d-49c7-7c15-ac8950ed3041",
+      "job": "zookeeper",
+      "index": 4,
+      "id": "21747d41-fd1c-4647-b5e2-bd3b898b199f",
+      "az": "z2",
+      "ips": [
+        "10.244.0.4"
+      ]
+    },
+    {
+      "agent_id": "f9c1a6e4-57ba-4da9-87fa-002281974921",
+      "cid": "5e53f5e9-00c9-4ef2-6475-0534f8ae2b8f",
+      "job": "zookeeper",
+      "index": 1,
+      "id": "d25d92a0-5809-4928-8079-b032bab19b43",
+      "az": "z2",
+      "ips": [
+        "10.244.0.5"
+      ]
+    },
+    {
+      "agent_id": "1b8a619f-817f-40ac-808c-ff78993afc01",
+      "cid": "1b65496a-e4ac-4abc-60e8-340ed68c7bd5",
+      "job": "zookeeper",
+      "index": 2,
+      "id": "3d377c0f-72e0-4d2f-97a5-1517f56b95cd",
+      "az": "z3",
+      "ips": [
+        "10.244.0.6"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": 4,
+      "state": "done",
+      "description": "retrieve vm-stats",
+      "timestamp": 1499442015,
+      "started_at": 1499442015,
+      "result": "",
+      "user": "admin",
+      "deployment": "zookeeper",
+      "context_id": ""
+    },
+    {
+      "id": 3,
+      "state": "done",
+      "description": "create deployment",
+      "timestamp": 1499440360,
+      "started_at": 1499440070,
+      "result": "/deployments/zookeeper",
+      "user": "admin",
+      "deployment": "zookeeper",
+      "context_id": ""
+    },
+    {
+      "id": 2,
+      "state": "done",
+      "description": "create release",
+      "timestamp": 1499440069,
+      "started_at": 1499440057,
+      "result": "Created release 'zookeeper/0.0.5'",
+      "user": "admin",
+      "deployment": null,
+      "context_id": ""
+    },
+    {
+      "id": 1,
+      "state": "done",
+      "description": "create stemcell",
+      "timestamp": 1499440056,
+      "started_at": 1499439981,
+      "result": "/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent/3421.11",
+      "user": "admin",
+      "deployment": null,
+      "context_id": ""
+    }
+  ],
+  "events": [
+    {
+      "id": "83",
+      "timestamp": 1499440360,
+      "user": "admin",
+      "action": "release",
+      "object_type": "lock",
+      "object_name": "lock:deployment:zookeeper",
+      "task": "3",
+      "deployment": "zookeeper",
+      "context": {}
+    },
+    {
+      "id": "82",
+      "parent_id": "9",
+      "timestamp": 1499440360,
+      "user": "admin",
+      "action": "create",
+      "object_type": "deployment",
+      "object_name": "zookeeper",
+      "task": "3",
+      "deployment": "zookeeper",
+      "context": {
+        "before": {},
+        "after": {
+          "releases": [
+            "zookeeper/0.0.5"
+          ],
+          "stemcells": [
+            "bosh-warden-boshlite-ubuntu-trusty-go_agent/3421.11"
+          ]
+        }
+      }
+    },
+    {
+      "id": "81",
+      "timestamp": 1499440360,
+      "user": "hm",
+      "action": "create",
+      "object_type": "alert",
+      "object_name": "13956d3f-c5c8-44a1-85f9-0e29c97e67ce",
+      "deployment": "zookeeper",
+      "context": {
+        "message": "director - finish update deployment. Alert @ 2017-07-07 15:12:40 UTC, severity 4: Finish update deployment for 'zookeeper' against Director '0d69cda3-af6f-4eaf-8989-d0a2a2ecacd1'"
+      }
+    },
+    {
+      "id": "80",
+      "parent_id": "76",
+      "timestamp": 1499440360,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "zookeeper/3d377c0f-72e0-4d2f-97a5-1517f56b95cd",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/3d377c0f-72e0-4d2f-97a5-1517f56b95cd",
+      "context": {}
+    },
+    {
+      "id": "79",
+      "timestamp": 1499440350,
+      "user": "hm",
+      "action": "create",
+      "object_type": "alert",
+      "object_name": "1499440350.234545478@localhost",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/3d377c0f-72e0-4d2f-97a5-1517f56b95cd",
+      "context": {
+        "message": "zookeeper (10.244.0.6) - Does not exist - restart. Alert @ 2017-07-07 15:12:30 UTC, severity 1: process is not running"
+      }
+    },
+    {
+      "id": "78",
+      "parent_id": "77",
+      "timestamp": 1499440338,
+      "user": "admin",
+      "action": "create",
+      "object_type": "disk",
+      "object_name": "afb52bb6-42c2-49ab-77c7-2e45f87301d4",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/3d377c0f-72e0-4d2f-97a5-1517f56b95cd",
+      "context": {}
+    },
+    {
+      "id": "77",
+      "timestamp": 1499440337,
+      "user": "admin",
+      "action": "create",
+      "object_type": "disk",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/3d377c0f-72e0-4d2f-97a5-1517f56b95cd",
+      "context": {}
+    },
+    {
+      "id": "76",
+      "timestamp": 1499440326,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "zookeeper/3d377c0f-72e0-4d2f-97a5-1517f56b95cd",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/3d377c0f-72e0-4d2f-97a5-1517f56b95cd",
+      "context": {
+        "az": "z3"
+      }
+    },
+    {
+      "id": "75",
+      "parent_id": "71",
+      "timestamp": 1499440326,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "zookeeper/d25d92a0-5809-4928-8079-b032bab19b43",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/d25d92a0-5809-4928-8079-b032bab19b43",
+      "context": {}
+    },
+    {
+      "id": "74",
+      "timestamp": 1499440316,
+      "user": "hm",
+      "action": "create",
+      "object_type": "alert",
+      "object_name": "1499440316.1440786492@localhost",
+      "context": {
+        "message": "zookeeper (10.244.0.5) - Does not exist - restart. Alert @ 2017-07-07 15:11:56 UTC, severity 1: process is not running"
+      }
+    },
+    {
+      "id": "73",
+      "parent_id": "72",
+      "timestamp": 1499440305,
+      "user": "admin",
+      "action": "create",
+      "object_type": "disk",
+      "object_name": "265c3a3c-f1ca-48ae-4034-3aae16c32601",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/d25d92a0-5809-4928-8079-b032bab19b43",
+      "context": {}
+    },
+    {
+      "id": "72",
+      "timestamp": 1499440304,
+      "user": "admin",
+      "action": "create",
+      "object_type": "disk",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/d25d92a0-5809-4928-8079-b032bab19b43",
+      "context": {}
+    },
+    {
+      "id": "71",
+      "timestamp": 1499440293,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "zookeeper/d25d92a0-5809-4928-8079-b032bab19b43",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/d25d92a0-5809-4928-8079-b032bab19b43",
+      "context": {
+        "az": "z2"
+      }
+    },
+    {
+      "id": "70",
+      "parent_id": "66",
+      "timestamp": 1499440293,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "zookeeper/21747d41-fd1c-4647-b5e2-bd3b898b199f",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/21747d41-fd1c-4647-b5e2-bd3b898b199f",
+      "context": {}
+    },
+    {
+      "id": "69",
+      "timestamp": 1499440283,
+      "user": "hm",
+      "action": "create",
+      "object_type": "alert",
+      "object_name": "1499440283.1440786492@localhost",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/21747d41-fd1c-4647-b5e2-bd3b898b199f",
+      "context": {
+        "message": "zookeeper (10.244.0.4) - Does not exist - restart. Alert @ 2017-07-07 15:11:23 UTC, severity 1: process is not running"
+      }
+    },
+    {
+      "id": "68",
+      "parent_id": "67",
+      "timestamp": 1499440272,
+      "user": "admin",
+      "action": "create",
+      "object_type": "disk",
+      "object_name": "4e91cc2b-0b1c-4fef-54ef-f91aa56a3c5b",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/21747d41-fd1c-4647-b5e2-bd3b898b199f",
+      "context": {}
+    },
+    {
+      "id": "67",
+      "timestamp": 1499440272,
+      "user": "admin",
+      "action": "create",
+      "object_type": "disk",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/21747d41-fd1c-4647-b5e2-bd3b898b199f",
+      "context": {}
+    },
+    {
+      "id": "66",
+      "timestamp": 1499440262,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "zookeeper/21747d41-fd1c-4647-b5e2-bd3b898b199f",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/21747d41-fd1c-4647-b5e2-bd3b898b199f",
+      "context": {
+        "az": "z2"
+      }
+    },
+    {
+      "id": "65",
+      "parent_id": "61",
+      "timestamp": 1499440262,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "zookeeper/e2c5ddad-77ce-4010-86ed-46a3293a25ca",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/e2c5ddad-77ce-4010-86ed-46a3293a25ca",
+      "context": {}
+    },
+    {
+      "id": "64",
+      "timestamp": 1499440252,
+      "user": "hm",
+      "action": "create",
+      "object_type": "alert",
+      "object_name": "1499440252.234545478@localhost",
+      "context": {
+        "message": "zookeeper (10.244.0.3) - Does not exist - restart. Alert @ 2017-07-07 15:10:52 UTC, severity 1: process is not running"
+      }
+    },
+    {
+      "id": "63",
+      "parent_id": "62",
+      "timestamp": 1499440239,
+      "user": "admin",
+      "action": "create",
+      "object_type": "disk",
+      "object_name": "bd95e5f6-aef5-4ba3-4262-b8c2e891afe8",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/e2c5ddad-77ce-4010-86ed-46a3293a25ca",
+      "context": {}
+    },
+    {
+      "id": "62",
+      "timestamp": 1499440238,
+      "user": "admin",
+      "action": "create",
+      "object_type": "disk",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/e2c5ddad-77ce-4010-86ed-46a3293a25ca",
+      "context": {}
+    },
+    {
+      "id": "61",
+      "timestamp": 1499440226,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "zookeeper/e2c5ddad-77ce-4010-86ed-46a3293a25ca",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/e2c5ddad-77ce-4010-86ed-46a3293a25ca",
+      "context": {
+        "az": "z1"
+      }
+    },
+    {
+      "id": "60",
+      "parent_id": "56",
+      "timestamp": 1499440226,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "zookeeper/b1674266-d061-41de-9445-7af19b9bd42e",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/b1674266-d061-41de-9445-7af19b9bd42e",
+      "context": {}
+    },
+    {
+      "id": "59",
+      "timestamp": 1499440216,
+      "user": "hm",
+      "action": "create",
+      "object_type": "alert",
+      "object_name": "1499440216.27520209@localhost",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/b1674266-d061-41de-9445-7af19b9bd42e",
+      "context": {
+        "message": "zookeeper (10.244.0.2) - Does not exist - restart. Alert @ 2017-07-07 15:10:16 UTC, severity 1: process is not running"
+      }
+    },
+    {
+      "id": "58",
+      "parent_id": "57",
+      "timestamp": 1499440204,
+      "user": "admin",
+      "action": "create",
+      "object_type": "disk",
+      "object_name": "fbf76ad8-dc8b-467d-50f9-8c56745d36de",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/b1674266-d061-41de-9445-7af19b9bd42e",
+      "context": {}
+    },
+    {
+      "id": "57",
+      "timestamp": 1499440204,
+      "user": "admin",
+      "action": "create",
+      "object_type": "disk",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/b1674266-d061-41de-9445-7af19b9bd42e",
+      "context": {}
+    },
+    {
+      "id": "56",
+      "timestamp": 1499440193,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "zookeeper/b1674266-d061-41de-9445-7af19b9bd42e",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/b1674266-d061-41de-9445-7af19b9bd42e",
+      "context": {
+        "az": "z1"
+      }
+    },
+    {
+      "id": "55",
+      "parent_id": "47",
+      "timestamp": 1499440182,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "object_name": "5f099bef-982b-42f6-5c8f-192bef303026",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/b1674266-d061-41de-9445-7af19b9bd42e",
+      "context": {}
+    },
+    {
+      "id": "54",
+      "parent_id": "48",
+      "timestamp": 1499440182,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "object_name": "5e53f5e9-00c9-4ef2-6475-0534f8ae2b8f",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/d25d92a0-5809-4928-8079-b032bab19b43",
+      "context": {}
+    },
+    {
+      "id": "53",
+      "parent_id": "50",
+      "timestamp": 1499440182,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "object_name": "7643d5c3-f89d-49c7-7c15-ac8950ed3041",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/21747d41-fd1c-4647-b5e2-bd3b898b199f",
+      "context": {}
+    },
+    {
+      "id": "52",
+      "parent_id": "49",
+      "timestamp": 1499440181,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "object_name": "1b65496a-e4ac-4abc-60e8-340ed68c7bd5",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/3d377c0f-72e0-4d2f-97a5-1517f56b95cd",
+      "context": {}
+    },
+    {
+      "id": "51",
+      "parent_id": "46",
+      "timestamp": 1499440181,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "object_name": "2b010687-5ca0-42b8-79f3-9211b68f78b8",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/e2c5ddad-77ce-4010-86ed-46a3293a25ca",
+      "context": {}
+    },
+    {
+      "id": "50",
+      "timestamp": 1499440157,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/21747d41-fd1c-4647-b5e2-bd3b898b199f",
+      "context": {}
+    },
+    {
+      "id": "49",
+      "timestamp": 1499440157,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/3d377c0f-72e0-4d2f-97a5-1517f56b95cd",
+      "context": {}
+    },
+    {
+      "id": "48",
+      "timestamp": 1499440157,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/d25d92a0-5809-4928-8079-b032bab19b43",
+      "context": {}
+    },
+    {
+      "id": "47",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/b1674266-d061-41de-9445-7af19b9bd42e",
+      "context": {}
+    },
+    {
+      "id": "46",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "zookeeper/e2c5ddad-77ce-4010-86ed-46a3293a25ca",
+      "context": {}
+    },
+    {
+      "id": "45",
+      "parent_id": "35",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "delete",
+      "object_type": "instance",
+      "object_name": "compilation-843b3c12-594a-4527-9f5a-e70d0816db0b/a79d1224-3324-4c21-a0cb-896b3328f8ab",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-843b3c12-594a-4527-9f5a-e70d0816db0b/a79d1224-3324-4c21-a0cb-896b3328f8ab",
+      "context": {}
+    },
+    {
+      "id": "44",
+      "parent_id": "38",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "delete",
+      "object_type": "vm",
+      "object_name": "2c601587-4e75-48c7-5657-aa2273a6cb6b",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-843b3c12-594a-4527-9f5a-e70d0816db0b/a79d1224-3324-4c21-a0cb-896b3328f8ab",
+      "context": {}
+    },
+    {
+      "id": "43",
+      "parent_id": "36",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "delete",
+      "object_type": "instance",
+      "object_name": "compilation-a89a4033-30b9-4369-b57d-65ea646dbef9/68fa4d63-7df1-443a-bef2-65311f98dad1",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-a89a4033-30b9-4369-b57d-65ea646dbef9/68fa4d63-7df1-443a-bef2-65311f98dad1",
+      "context": {}
+    },
+    {
+      "id": "42",
+      "parent_id": "39",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "delete",
+      "object_type": "vm",
+      "object_name": "1f48a578-601d-4767-6b5e-4918d0cd19d3",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-a89a4033-30b9-4369-b57d-65ea646dbef9/68fa4d63-7df1-443a-bef2-65311f98dad1",
+      "context": {}
+    },
+    {
+      "id": "41",
+      "parent_id": "34",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "delete",
+      "object_type": "instance",
+      "object_name": "compilation-d373ef86-db1a-4b85-afb5-ebdd4351d3e3/3ef77abf-e5fe-4224-a6ce-0f1701d562c0",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-d373ef86-db1a-4b85-afb5-ebdd4351d3e3/3ef77abf-e5fe-4224-a6ce-0f1701d562c0",
+      "context": {}
+    },
+    {
+      "id": "40",
+      "parent_id": "37",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "delete",
+      "object_type": "vm",
+      "object_name": "7547cf2d-97b7-4c2d-43d7-e84e9e7bf1f6",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-d373ef86-db1a-4b85-afb5-ebdd4351d3e3/3ef77abf-e5fe-4224-a6ce-0f1701d562c0",
+      "context": {}
+    },
+    {
+      "id": "39",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "delete",
+      "object_type": "vm",
+      "object_name": "1f48a578-601d-4767-6b5e-4918d0cd19d3",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-a89a4033-30b9-4369-b57d-65ea646dbef9/68fa4d63-7df1-443a-bef2-65311f98dad1",
+      "context": {}
+    },
+    {
+      "id": "38",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "delete",
+      "object_type": "vm",
+      "object_name": "2c601587-4e75-48c7-5657-aa2273a6cb6b",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-843b3c12-594a-4527-9f5a-e70d0816db0b/a79d1224-3324-4c21-a0cb-896b3328f8ab",
+      "context": {}
+    },
+    {
+      "id": "37",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "delete",
+      "object_type": "vm",
+      "object_name": "7547cf2d-97b7-4c2d-43d7-e84e9e7bf1f6",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-d373ef86-db1a-4b85-afb5-ebdd4351d3e3/3ef77abf-e5fe-4224-a6ce-0f1701d562c0",
+      "context": {}
+    },
+    {
+      "id": "36",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "delete",
+      "object_type": "instance",
+      "object_name": "compilation-a89a4033-30b9-4369-b57d-65ea646dbef9/68fa4d63-7df1-443a-bef2-65311f98dad1",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-a89a4033-30b9-4369-b57d-65ea646dbef9/68fa4d63-7df1-443a-bef2-65311f98dad1",
+      "context": {}
+    },
+    {
+      "id": "35",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "delete",
+      "object_type": "instance",
+      "object_name": "compilation-843b3c12-594a-4527-9f5a-e70d0816db0b/a79d1224-3324-4c21-a0cb-896b3328f8ab",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-843b3c12-594a-4527-9f5a-e70d0816db0b/a79d1224-3324-4c21-a0cb-896b3328f8ab",
+      "context": {}
+    },
+    {
+      "id": "34",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "delete",
+      "object_type": "instance",
+      "object_name": "compilation-d373ef86-db1a-4b85-afb5-ebdd4351d3e3/3ef77abf-e5fe-4224-a6ce-0f1701d562c0",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-d373ef86-db1a-4b85-afb5-ebdd4351d3e3/3ef77abf-e5fe-4224-a6ce-0f1701d562c0",
+      "context": {}
+    },
+    {
+      "id": "33",
+      "timestamp": 1499440156,
+      "user": "admin",
+      "action": "release",
+      "object_type": "lock",
+      "object_name": "lock:compile:3:ubuntu-trusty/3421.11",
+      "task": "3",
+      "deployment": "zookeeper",
+      "context": {}
+    },
+    {
+      "id": "32",
+      "timestamp": 1499440148,
+      "user": "admin",
+      "action": "acquire",
+      "object_type": "lock",
+      "object_name": "lock:compile:3:ubuntu-trusty/3421.11",
+      "task": "3",
+      "deployment": "zookeeper",
+      "context": {}
+    },
+    {
+      "id": "31",
+      "timestamp": 1499440148,
+      "user": "admin",
+      "action": "release",
+      "object_type": "lock",
+      "object_name": "lock:compile:1:ubuntu-trusty/3421.11",
+      "task": "3",
+      "deployment": "zookeeper",
+      "context": {}
+    },
+    {
+      "id": "30",
+      "timestamp": 1499440147,
+      "user": "admin",
+      "action": "release",
+      "object_type": "lock",
+      "object_name": "lock:compile:2:ubuntu-trusty/3421.11",
+      "task": "3",
+      "deployment": "zookeeper",
+      "context": {}
+    },
+    {
+      "id": "29",
+      "timestamp": 1499440119,
+      "user": "admin",
+      "action": "release",
+      "object_type": "lock",
+      "object_name": "lock:compile:4:ubuntu-trusty/3421.11",
+      "task": "3",
+      "deployment": "zookeeper",
+      "context": {}
+    },
+    {
+      "id": "28",
+      "parent_id": "17",
+      "timestamp": 1499440107,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "compilation-a89a4033-30b9-4369-b57d-65ea646dbef9/68fa4d63-7df1-443a-bef2-65311f98dad1",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-a89a4033-30b9-4369-b57d-65ea646dbef9/68fa4d63-7df1-443a-bef2-65311f98dad1",
+      "context": {}
+    },
+    {
+      "id": "27",
+      "parent_id": "18",
+      "timestamp": 1499440107,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "compilation-d373ef86-db1a-4b85-afb5-ebdd4351d3e3/3ef77abf-e5fe-4224-a6ce-0f1701d562c0",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-d373ef86-db1a-4b85-afb5-ebdd4351d3e3/3ef77abf-e5fe-4224-a6ce-0f1701d562c0",
+      "context": {}
+    },
+    {
+      "id": "26",
+      "parent_id": "19",
+      "timestamp": 1499440105,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "compilation-843b3c12-594a-4527-9f5a-e70d0816db0b/a79d1224-3324-4c21-a0cb-896b3328f8ab",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-843b3c12-594a-4527-9f5a-e70d0816db0b/a79d1224-3324-4c21-a0cb-896b3328f8ab",
+      "context": {}
+    },
+    {
+      "id": "25",
+      "parent_id": "22",
+      "timestamp": 1499440097,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "object_name": "7547cf2d-97b7-4c2d-43d7-e84e9e7bf1f6",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-d373ef86-db1a-4b85-afb5-ebdd4351d3e3/3ef77abf-e5fe-4224-a6ce-0f1701d562c0",
+      "context": {}
+    },
+    {
+      "id": "24",
+      "parent_id": "20",
+      "timestamp": 1499440097,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "object_name": "1f48a578-601d-4767-6b5e-4918d0cd19d3",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-a89a4033-30b9-4369-b57d-65ea646dbef9/68fa4d63-7df1-443a-bef2-65311f98dad1",
+      "context": {}
+    },
+    {
+      "id": "23",
+      "parent_id": "21",
+      "timestamp": 1499440097,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "object_name": "2c601587-4e75-48c7-5657-aa2273a6cb6b",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-843b3c12-594a-4527-9f5a-e70d0816db0b/a79d1224-3324-4c21-a0cb-896b3328f8ab",
+      "context": {}
+    },
+    {
+      "id": "22",
+      "timestamp": 1499440071,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-d373ef86-db1a-4b85-afb5-ebdd4351d3e3/3ef77abf-e5fe-4224-a6ce-0f1701d562c0",
+      "context": {}
+    },
+    {
+      "id": "21",
+      "timestamp": 1499440071,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-843b3c12-594a-4527-9f5a-e70d0816db0b/a79d1224-3324-4c21-a0cb-896b3328f8ab",
+      "context": {}
+    },
+    {
+      "id": "20",
+      "timestamp": 1499440071,
+      "user": "admin",
+      "action": "create",
+      "object_type": "vm",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-a89a4033-30b9-4369-b57d-65ea646dbef9/68fa4d63-7df1-443a-bef2-65311f98dad1",
+      "context": {}
+    },
+    {
+      "id": "19",
+      "timestamp": 1499440071,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "compilation-843b3c12-594a-4527-9f5a-e70d0816db0b/a79d1224-3324-4c21-a0cb-896b3328f8ab",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-843b3c12-594a-4527-9f5a-e70d0816db0b/a79d1224-3324-4c21-a0cb-896b3328f8ab",
+      "context": {}
+    },
+    {
+      "id": "18",
+      "timestamp": 1499440071,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "compilation-d373ef86-db1a-4b85-afb5-ebdd4351d3e3/3ef77abf-e5fe-4224-a6ce-0f1701d562c0",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-d373ef86-db1a-4b85-afb5-ebdd4351d3e3/3ef77abf-e5fe-4224-a6ce-0f1701d562c0",
+      "context": {}
+    },
+    {
+      "id": "17",
+      "timestamp": 1499440071,
+      "user": "admin",
+      "action": "create",
+      "object_type": "instance",
+      "object_name": "compilation-a89a4033-30b9-4369-b57d-65ea646dbef9/68fa4d63-7df1-443a-bef2-65311f98dad1",
+      "task": "3",
+      "deployment": "zookeeper",
+      "instance": "compilation-a89a4033-30b9-4369-b57d-65ea646dbef9/68fa4d63-7df1-443a-bef2-65311f98dad1",
+      "context": {}
+    },
+    {
+      "id": "16",
+      "timestamp": 1499440071,
+      "user": "admin",
+      "action": "acquire",
+      "object_type": "lock",
+      "object_name": "lock:compile:2:ubuntu-trusty/3421.11",
+      "task": "3",
+      "deployment": "zookeeper",
+      "context": {}
+    },
+    {
+      "id": "15",
+      "timestamp": 1499440071,
+      "user": "admin",
+      "action": "acquire",
+      "object_type": "lock",
+      "object_name": "lock:compile:4:ubuntu-trusty/3421.11",
+      "task": "3",
+      "deployment": "zookeeper",
+      "context": {}
+    },
+    {
+      "id": "14",
+      "timestamp": 1499440071,
+      "user": "admin",
+      "action": "acquire",
+      "object_type": "lock",
+      "object_name": "lock:compile:1:ubuntu-trusty/3421.11",
+      "task": "3",
+      "deployment": "zookeeper",
+      "context": {}
+    },
+    {
+      "id": "13",
+      "timestamp": 1499440071,
+      "user": "admin",
+      "action": "release",
+      "object_type": "lock",
+      "object_name": "lock:release:zookeeper",
+      "task": "3",
+      "context": {}
+    },
+    {
+      "id": "12",
+      "timestamp": 1499440070,
+      "user": "admin",
+      "action": "acquire",
+      "object_type": "lock",
+      "object_name": "lock:release:zookeeper",
+      "task": "3",
+      "context": {}
+    },
+    {
+      "id": "11",
+      "timestamp": 1499440070,
+      "user": "hm",
+      "action": "create",
+      "object_type": "alert",
+      "object_name": "643a85e9-1fd1-4dd3-9f07-68b07be235dc",
+      "deployment": "zookeeper",
+      "context": {
+        "message": "director - begin update deployment. Alert @ 2017-07-07 15:07:50 UTC, severity 4: Begin update deployment for 'zookeeper' against Director '0d69cda3-af6f-4eaf-8989-d0a2a2ecacd1'"
+      }
+    },
+    {
+      "id": "10",
+      "timestamp": 1499440070,
+      "user": "admin",
+      "action": "acquire",
+      "object_type": "lock",
+      "object_name": "lock:deployment:zookeeper",
+      "task": "3",
+      "deployment": "zookeeper",
+      "context": {}
+    },
+    {
+      "id": "9",
+      "timestamp": 1499440070,
+      "user": "admin",
+      "action": "create",
+      "object_type": "deployment",
+      "object_name": "zookeeper",
+      "task": "3",
+      "deployment": "zookeeper",
+      "context": {}
+    },
+    {
+      "id": "8",
+      "timestamp": 1499440069,
+      "user": "admin",
+      "action": "release",
+      "object_type": "lock",
+      "object_name": "lock:release:zookeeper",
+      "task": "2",
+      "context": {}
+    },
+    {
+      "id": "7",
+      "timestamp": 1499440064,
+      "user": "admin",
+      "action": "acquire",
+      "object_type": "lock",
+      "object_name": "lock:release:zookeeper",
+      "task": "2",
+      "context": {}
+    },
+    {
+      "id": "6",
+      "timestamp": 1499440056,
+      "user": "admin",
+      "action": "update",
+      "object_type": "cloud-config",
+      "context": {}
+    },
+    {
+      "id": "5",
+      "timestamp": 1499439975,
+      "user": "_director",
+      "action": "start",
+      "object_type": "worker",
+      "object_name": "worker_4",
+      "context": {}
+    },
+    {
+      "id": "4",
+      "timestamp": 1499439974,
+      "user": "_director",
+      "action": "start",
+      "object_type": "worker",
+      "object_name": "worker_3",
+      "context": {}
+    },
+    {
+      "id": "3",
+      "timestamp": 1499439973,
+      "user": "_director",
+      "action": "start",
+      "object_type": "worker",
+      "object_name": "worker_2",
+      "context": {}
+    },
+    {
+      "id": "2",
+      "timestamp": 1499439972,
+      "user": "_director",
+      "action": "start",
+      "object_type": "worker",
+      "object_name": "worker_1",
+      "context": {}
+    },
+    {
+      "id": "1",
+      "timestamp": 1499439970,
+      "user": "_director",
+      "action": "start",
+      "object_type": "director",
+      "object_name": "0d69cda3-af6f-4eaf-8989-d0a2a2ecacd1",
+      "context": {
+        "version": "262.3.0"
+      }
+    }
+  ]
+}

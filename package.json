@@ -1,0 +1,35 @@
+{
+  "name": "infrared",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.3.2",
+    "http-server": "^0.10.0",
+    "json-server": "^0.11.0",
+    "react-scripts": "1.0.6",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "dependencies": {
+    "react-scripts": "1.0.10",
+    "chart.js": "2.5.0",
+    "history": "^4.6.1",
+    "react": "^15.5.4",
+    "react-addons-css-transition-group": "15.5.2",
+    "react-addons-transition-group": "15.5.2",
+    "react-chartjs-2": "2.1.0",
+    "react-dom": "15.5.4",
+    "react-router-dom": "4.1.1",
+    "reactstrap": "4.6.2"
+  },
+  "scripts": {
+    "start:dev": "react-scripts start",
+    "start:api": "json-server api.json --port 9000",
+    "prestart": "npm run build",
+    "start": "json-server api.json --static ./build --port 9000",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
